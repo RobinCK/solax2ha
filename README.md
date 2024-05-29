@@ -18,53 +18,103 @@ Solax2HA is a service that integrates Solax inverters with Home Assistant by cre
 
 ## Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone git@github.com:RobinCK/solax2ha.git
-   cd solax2ha
-   ```
+### 1. Clone the repository:
+```bash
+git clone git@github.com:RobinCK/solax2ha.git
+cd solax2ha
+```
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+### 2. Install dependencies:
+```bash
+npm install
+```
 
-3. **Build the project**:
-   ```bash
-   npm run build
-   ```
+### 3. Build the project:
+```bash
+npm run build
+```
 
-4. **Create a `.env` file**:
-   Create a `.env` file in the root directory with the following content:
-   ```env
-   SOLAX_URL=http://192.168.100.2
-   SOLAX_PASSWORD=password
-   HA_URL=https://192.168.100.3:8123
-   HA_TOKEN=eyJ
-   HA_SENSOR_BASE_NAME=solax
-   HA_SENSOR_BASE_UNIQUE_ID=solax_id
-   HA_DEVICE_NAME=Solax G2 Inverter
-   HA_DEVICE_IDENTIFIER=Solax G2 Inverter
-   HA_DEVICE_MANUFACTURER=Solax
-   HA_DEVICE_MODEL=G2 3-Phase
-   ```
+### 4. Create a `.env` file:
+Create a `.env` file in the root directory with the following content:
+```env
+SOLAX_URL=http://192.168.100.2
+SOLAX_PASSWORD=password
+HA_URL=https://192.168.100.3:8123
+HA_TOKEN=eyJ
+HA_SENSOR_BASE_NAME=solax
+HA_SENSOR_BASE_UNIQUE_ID=solax_id
+HA_DEVICE_NAME=Solax G2 Inverter
+HA_DEVICE_IDENTIFIER=Solax G2 Inverter
+HA_DEVICE_MANUFACTURER=Solax
+HA_DEVICE_MODEL=G2 3-Phase
+```
 
-5. **Run the service**:
-   ```bash
-   node ./dist/index.js
-   ```
+### 5. Run the service:
+```bash
+node ./dist/index.js
+```
 
-6. **Set up cron for periodic execution**:
-   Open crontab for editing:
-   ```bash
-   crontab -e
-   ```
+### 6. Set up periodic execution:
+Create a bash script to run the service:
+```bash
+#!/bin/bash
+cd /path/to/solax2ha
+node ./dist/index.js
+```
 
-   Add the following line to run the service every 10 seconds:
-   ```bash
-   */1 * * * * /path/to/node /path/to/solax2ha/dist/index.js
-   ```
+#### Using cron:
+Open crontab for editing:
+```bash
+crontab -e
+```
 
+Add the following line to run the service every 1 minute:
+```bash
+* * * * * /path/to/bash /path/to/your/script.sh
+```
+
+#### Using systemd:
+If you need to transmit more often than 1 minute, you can create your own service
+
+##### Step 1: Create a systemd Service File
+Create a service file for your script, for example, `/etc/systemd/system/solax.service`, and add the following content:
+```ini
+[Unit]
+Description=Run Solax solax2ha
+
+[Service]
+ExecStart=/path/to/bash /path/to/your/script.sh
+Restart=always
+```
+
+##### Step 2: Create a systemd Timer File
+Create a timer file to run the service every 10 seconds, for example, `/etc/systemd/system/solax.timer`, and add the following content:
+```ini
+[Unit]
+Description=Run Solax script every 10 seconds
+
+[Timer]
+OnBootSec=10sec
+OnUnitActiveSec=10sec
+Unit=solax.service
+
+[Install]
+WantedBy=timers.target
+```
+
+##### Step 3: Start and Enable the Timer
+Run the following commands to start the timer and set it to start automatically at boot:
+```sh
+sudo systemctl daemon-reload
+sudo systemctl start solax.timer
+sudo systemctl enable solax.timer
+```
+
+##### Step 4: Check the Status of the Timer
+To verify that the timer is working, run:
+```sh
+sudo systemctl status solax.timer
+```
 
 ## Usage
 
