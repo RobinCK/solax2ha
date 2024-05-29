@@ -8,7 +8,6 @@ export class HaService {
     return await Promise.all(
       Object.entries(data)
         .map(([key, value]) => {
-          console.log(key);
           const attribute = sensors[key as keyof SolaxData];
 
           if (attribute) {

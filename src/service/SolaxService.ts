@@ -1,5 +1,6 @@
 import {solaxClient} from '../client';
 import {SolaxResponse} from '../types';
+import {AxiosResponse} from "axios";
 
 export class SolaxService {
   public static async getInverterData(): Promise<SolaxResponse> {
@@ -7,6 +8,6 @@ export class SolaxService {
       optType: 'ReadRealTimeData',
       pwd: process.env.SOLAX_PASSWORD,
     })
-      .then(response => response.data);
+      .then((response: AxiosResponse<SolaxResponse>) => response.data);
   }
 }

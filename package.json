@@ -2,17 +2,19 @@
   "name": "solax2ha",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "format": "eslint . --fix",
+    "build": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/RobinCK/solax2ha.git"
   },
-  "type": "module",
-  "author": "",
+  "author": "Igor Ognichenko <ognichenko.igor@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RobinCK/solax2ha/issues"
