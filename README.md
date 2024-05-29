@@ -20,7 +20,7 @@ Solax2HA is a service that integrates Solax inverters with Home Assistant by cre
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/RobinCK/solax2ha.git
+   git clone git@github.com:RobinCK/solax2ha.git
    cd solax2ha
    ```
 
