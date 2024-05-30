@@ -15,7 +15,7 @@
     "url": "git+ssh://git@github.com/RobinCK/solax2ha.git"
   },
   "author": "Igor Ognichenko <ognichenko.igor@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/RobinCK/solax2ha/issues"
   },
