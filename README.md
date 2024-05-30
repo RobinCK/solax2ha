@@ -84,7 +84,6 @@ Description=Run Solax solax2ha
 
 [Service]
 ExecStart=/path/to/bash /path/to/your/script.sh
-Restart=always
 ```
 
 ##### Step 2: Create a systemd Timer File
