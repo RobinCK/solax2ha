@@ -60,7 +60,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
   },
 
   dc1Power: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'DC1 Power',
     icon: 'mdi:solar-power',
     state_class: 'measurement',
@@ -68,7 +68,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
     unique_id: `${process.env.HA_SENSOR_BASE_UNIQUE_ID}_dc1Power`,
   },
   dc2Power: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'DC2 Power',
     icon: 'mdi:solar-power',
     state_class: 'measurement',
@@ -134,7 +134,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
   },
 
   epsAPower: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'EPS A Power',
     icon: 'mdi:power-plug',
     state_class: 'measurement',
@@ -142,7 +142,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
     unique_id: `${process.env.HA_SENSOR_BASE_UNIQUE_ID}_epsAPower`,
   },
   epsBPower: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'EPS B Power',
     icon: 'mdi:power-plug',
     state_class: 'measurement',
@@ -150,7 +150,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
     unique_id: `${process.env.HA_SENSOR_BASE_UNIQUE_ID}_epsBPower`,
   },
   epsCPower: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'EPS C Power',
     icon: 'mdi:power-plug',
     state_class: 'measurement',
@@ -184,7 +184,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
   },
 
   batteryPower: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'Battery Power',
     icon: 'mdi:battery',
     state_class: 'measurement',
@@ -292,7 +292,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
   },
 
   gridAPower: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'Grid A Power',
     icon: 'mdi:power-plug',
     state_class: 'measurement',
@@ -300,7 +300,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
     unique_id: `${process.env.HA_SENSOR_BASE_UNIQUE_ID}_gridAPower`,
   },
   gridBPower: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'Grid B Power',
     icon: 'mdi:power-plug',
     state_class: 'measurement',
@@ -308,7 +308,7 @@ export const sensors: { [name in keyof SolaxData]: SensorAttribute } = {
     unique_id: `${process.env.HA_SENSOR_BASE_UNIQUE_ID}_gridBPower`,
   },
   gridCPower: {
-    unit_of_measurement: Units.WATT,
+    unit_of_measurement: Units.WATT_HOUR,
     friendly_name: 'Grid C Power',
     icon: 'mdi:power-plug',
     state_class: 'measurement',
